@@ -17,13 +17,7 @@ Node support: >=18
 npm i geonice
 ```
 
-Peer dependency: `undici` for environments without global `fetch`.
-
-```bash
-npm i undici
-```
-
-In Node: `import { fetch } from "undici"; globalThis.fetch = fetch as any;`
+Uses native `fetch` (Node 18+). For older Node versions, polyfill `fetch` globally.
 
 ## Usage
 
@@ -82,11 +76,15 @@ Types exported: `Coordinates`, `GeocodeResult`, `GeocodeOptions`, `ReverseGeocod
   - For Nominatim, include a descriptive `User-Agent` and follow their usage policy.
   - For ipapi.co, expect public endpoints to rate limit; consider paid tiers for production.
 
-If your Node environment lacks a global `fetch`, set it up:
+If your Node environment lacks a global `fetch` (Node <18), polyfill it:
 
 ```ts
+// Option 1: Use undici
 import { fetch } from "undici";
-// @ts-ignore
+globalThis.fetch = fetch;
+
+// Option 2: Use node-fetch
+import fetch from "node-fetch";
 globalThis.fetch = fetch;
 ```
 
