@@ -1,6 +1,6 @@
 {
-  "name": "geonice",
-  "version": "0.1.3",
+  "name": "geo-lite",
+  "version": "0.1.4",
   "description": "TypeScript geocoding + IP geolocation library for Node/Next.js (Nominatim + ipapi)",
   "keywords": [
     "geocoding",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/next-dna/geonice.git"
+    "url": "git+https://github.com/next-dna/geo-lite.git"
   },
   "bugs": {
-    "url": "https://github.com/next-dna/geonice/issues"
+    "url": "https://github.com/next-dna/geo-lite/issues"
   },
-  "homepage": "https://github.com/next-dna/geonice#readme",
+  "homepage": "https://github.com/next-dna/geo-lite#readme",
   "type": "module",
   "exports": {
     ".": {
@@ -40,7 +40,7 @@
     "LICENSE"
   ],
   "bin": {
-    "geonice": "dist/cli.cjs"
+    "geo-lite": "dist/cli.cjs"
   },
   "sideEffects": false,
   "engines": {
