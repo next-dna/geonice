@@ -49,3 +49,9 @@ export async function reverseGeocodeNominatim(lat: number, lon: number, opts: Re
       : undefined,
   };
 }
+
+// Convenience: returns the best match (first result) for a place string like city/state/country
+export async function geocodePlace(query: string, opts: GeocodeOptions = {}): Promise<GeocodeResult | undefined> {
+  const results = await geocodeNominatim(query, opts);
+  return results[0];
+}

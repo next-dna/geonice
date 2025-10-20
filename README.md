@@ -27,11 +27,14 @@ In Node: `import { fetch } from "undici"; globalThis.fetch = fetch as any;`
 ## Usage
 
 ```ts
-import { geocodeNominatim, reverseGeocodeNominatim, lookupIp } from "geonice";
+import { geocodeNominatim, reverseGeocodeNominatim, geocodePlace, lookupIp } from "geonice";
 
 const results = await geocodeNominatim("Eiffel Tower", { userAgent: "your-app/1.0" });
 const place = await reverseGeocodeNominatim(48.8584, 2.2945);
 const ip = await lookupIp();
+
+// Convenience: city/state/country in one string
+const sydney = await geocodePlace("Sydney, Australia", { userAgent: "your-app/1.0" });
 ```
 
 CommonJS:

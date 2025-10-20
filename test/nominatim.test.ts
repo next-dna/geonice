@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { geocodeNominatim, reverseGeocodeNominatim } from "../src/providers/nominatim";
+import { geocodeNominatim, reverseGeocodeNominatim, geocodePlace } from "../src/providers/nominatim";
 
 describe("Nominatim", () => {
   it("geocodes a well-known landmark", async () => {
@@ -14,6 +14,13 @@ describe("Nominatim", () => {
     expect(res.label).toBeDefined();
     expect(typeof res.lat).toBe("number");
     expect(typeof res.lon).toBe("number");
+  });
+
+  it("geocodePlace returns the best match for a city/state/country", async () => {
+    const best = await geocodePlace("Sydney, Australia", { userAgent: "geonice-tests" });
+    expect(best).toBeDefined();
+    expect(typeof best!.lat).toBe("number");
+    expect(typeof best!.lon).toBe("number");
   });
 });
 
