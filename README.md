@@ -71,32 +71,6 @@ Types exported: `Coordinates`, `GeocodeResult`, `GeocodeOptions`, `ReverseGeocod
   - For Nominatim, include a descriptive `User-Agent` and follow their usage policy.
   - For ipapi.co, expect public endpoints to rate limit; consider paid tiers for production.
 
-## Build & Publish (npm)
-
-1. Ensure you are logged in:
-   ```bash
-   npm login
-   ```
-2. Update `package.json` fields: `name`, `version`, `author`, `repository`, `homepage`, `bugs`.
-3. Build:
-   ```bash
-   npm run build
-   ```
-4. Publish:
-   ```bash
-   npm publish --access public
-   ```
-
-## Local development
-
-```bash
-npm install
-npm run lint
-npm run test
-npm run build
-node -e "import(./dist/index.js).then(m=>console.log(Object.keys(m)))"
-```
-
 If your Node environment lacks a global `fetch`, set it up:
 
 ```ts
