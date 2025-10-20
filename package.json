@@ -1,6 +1,6 @@
 {
   "name": "geonice",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "TypeScript geocoding + IP geolocation library for Node/Next.js (Nominatim + ipapi)",
   "keywords": [
     "geocoding",
