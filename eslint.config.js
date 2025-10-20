@@ -20,6 +20,9 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...tsPlugin.configs.recommended.rules,
+      // TS handles globals and types; disable noisy base rule for TS files
+      "no-undef": "off",
+      "@typescript-eslint/no-explicit-any": "off",
       "prettier/prettier": ["error", { singleQuote: false, semi: true, printWidth: 100 }],
     },
   },

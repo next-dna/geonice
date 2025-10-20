@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { geocodeNominatim, reverseGeocodeNominatim, geocodePlace } from "../src/providers/nominatim";
+import {
+  geocodeNominatim,
+  reverseGeocodeNominatim,
+  geocodePlace,
+} from "../src/providers/nominatim";
 
 describe("Nominatim", () => {
   it("geocodes a well-known landmark", async () => {
@@ -23,5 +27,3 @@ describe("Nominatim", () => {
     expect(typeof best!.lon).toBe("number");
   });
 });
-
-

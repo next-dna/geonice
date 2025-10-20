@@ -27,6 +27,17 @@ In Node: `import { fetch } from "undici"; globalThis.fetch = fetch as any;`
 
 ## Usage
 
+### CLI (npx)
+```bash
+# Get coordinates for any place worldwide
+npx geonice "Washington, DC, USA"
+# Output: {"lat":38.8950368,"lon":-77.0365427,"label":"Washington, District of Columbia, United States"}
+
+npx geonice "Sydney, Australia"
+npx geonice "Paris, France"
+```
+
+### Library
 ```ts
 import { geocodeNominatim, reverseGeocodeNominatim, geocodePlace, lookupIp } from "geonice";
 

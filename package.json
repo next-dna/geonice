@@ -39,6 +39,9 @@
     "README.md",
     "LICENSE"
   ],
+  "bin": {
+    "geonice": "dist/cli.cjs"
+  },
   "sideEffects": false,
   "engines": {
     "node": ">=18"
