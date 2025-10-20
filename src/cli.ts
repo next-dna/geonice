@@ -3,11 +3,11 @@ import { geocodePlace } from "./index";
 async function main() {
   const query = process.argv.slice(2).join(" ");
   if (!query) {
-    console.error("Usage: geonice <place>");
+    console.error("Usage: quick-geocode <place>");
     process.exit(1);
   }
   try {
-    const result = await geocodePlace(query, { userAgent: "geonice-cli" });
+    const result = await geocodePlace(query, { userAgent: "quick-geocode-cli" });
     if (!result) {
       console.error("No results");
       process.exit(2);
