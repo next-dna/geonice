@@ -7,7 +7,7 @@ A minimal, zero-dependency TypeScript geolocation toolkit for Node and Next.js:
 - ESM + CJS builds, strict types, Node 18+ native fetch
 - Convenience: get latitude/longitude from city/state/country with a single call
 
-Repository: https://github.com/next-dna/geonice
+Repository: https://github.com/next-dna/quick-geocode
 
 Node support: >=18
 

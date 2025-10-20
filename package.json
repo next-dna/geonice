@@ -1,6 +1,6 @@
 {
   "name": "quick-geocode",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "TypeScript geocoding + IP geolocation library for Node/Next.js (Nominatim + ipapi)",
   "keywords": [
     "geocode",

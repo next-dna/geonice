@@ -7,21 +7,27 @@ import {
 
 describe("Nominatim", () => {
   it("geocodes a well-known landmark", async () => {
-    const results = await geocodeNominatim("Eiffel Tower, Paris", { userAgent: "geonice-tests" });
+    const results = await geocodeNominatim("Eiffel Tower, Paris", {
+      userAgent: "quick-geocode-tests",
+    });
     expect(results.length).toBeGreaterThan(0);
     expect(typeof results[0].lat).toBe("number");
     expect(typeof results[0].lon).toBe("number");
   });
 
   it("reverse geocodes coordinates", async () => {
-    const res = await reverseGeocodeNominatim(48.8584, 2.2945, { userAgent: "geonice-tests" });
+    const res = await reverseGeocodeNominatim(48.8584, 2.2945, {
+      userAgent: "quick-geocode-tests",
+    });
     expect(res.label).toBeDefined();
     expect(typeof res.lat).toBe("number");
     expect(typeof res.lon).toBe("number");
   });
 
   it("geocodePlace returns the best match for a city/state/country", async () => {
-    const best = await geocodePlace("Sydney, Australia", { userAgent: "geonice-tests" });
+    const best = await geocodePlace("Sydney, Australia", {
+      userAgent: "quick-geocode-tests",
+    });
     expect(best).toBeDefined();
     expect(typeof best!.lat).toBe("number");
     expect(typeof best!.lon).toBe("number");
