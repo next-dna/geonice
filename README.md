@@ -5,6 +5,7 @@ A minimal, zero-dependency TypeScript geolocation toolkit for Node and Next.js:
 - Geocoding & reverse-geocoding via OpenStreetMap Nominatim
 - IP geolocation via ipapi.co
 - ESM + CJS builds, strict types, Node 18+ native fetch
+- Convenience: get latitude/longitude from city/state/country with a single call
 
 Repository: https://github.com/next-dna/geonice
 
@@ -35,6 +36,10 @@ const ip = await lookupIp();
 
 // Convenience: city/state/country in one string
 const sydney = await geocodePlace("Sydney, Australia", { userAgent: "your-app/1.0" });
+
+// Another example: Washington, DC (United States)
+const dc = await geocodePlace("Washington, DC, USA", { userAgent: "your-app/1.0" });
+console.log(dc?.lat, dc?.lon);
 ```
 
 CommonJS:
@@ -52,6 +57,7 @@ const { geocodeNominatim, reverseGeocodeNominatim, lookupIp } = require("geonice
 
 ## API
 
+- `geocodePlace(query, opts?) => Promise<GeocodeResult | undefined>` — convenience for city/state/country strings
 - `geocodeNominatim(query, opts?) => Promise<GeocodeResult[]>`
 - `reverseGeocodeNominatim(lat, lon, opts?) => Promise<GeocodeResult>`
 - `lookupIp(ip?, opts?) => Promise<IpLookupResult>`
