@@ -11,7 +11,10 @@
     "nextjs"
   ],
   "license": "MIT",
-  "author": "Sandip Gami",
+  "author": {
+    "name": "Sandip Gami",
+    "url": "https://github.com/next-dna"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/next-dna/geonice.git"

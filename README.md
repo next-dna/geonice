@@ -102,4 +102,9 @@ Issues and PRs welcome at https://github.com/next-dna/geonice. Please run `npm r
 
 ## License
 
-MIT
+MIT © 2025 Sandip Gami
+
+## Author
+
+- Name: Sandip Gami
+- GitHub: https://github.com/next-dna
