@@ -1,6 +1,6 @@
 {
-  "name": "geo-lite",
-  "version": "0.1.4",
+  "name": "quick-geocode",
+  "version": "0.1.5",
   "description": "TypeScript geocoding + IP geolocation library for Node/Next.js (Nominatim + ipapi)",
   "keywords": [
     "geocoding",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/next-dna/geo-lite.git"
+    "url": "git+https://github.com/next-dna/quick-geocode.git"
   },
   "bugs": {
-    "url": "https://github.com/next-dna/geo-lite/issues"
+    "url": "https://github.com/next-dna/quick-geocode/issues"
   },
-  "homepage": "https://github.com/next-dna/geo-lite#readme",
+  "homepage": "https://github.com/next-dna/quick-geocode#readme",
   "type": "module",
   "exports": {
     ".": {
@@ -40,7 +40,7 @@
     "LICENSE"
   ],
   "bin": {
-    "geo-lite": "dist/cli.cjs"
+    "quick-geocode": "dist/cli.cjs"
   },
   "sideEffects": false,
   "engines": {

@@ -1,4 +1,4 @@
-# geo-lite
+# quick-geocode
 
 A minimal, zero-dependency TypeScript geolocation toolkit for Node and Next.js:
 
@@ -14,7 +14,7 @@ Node support: >=18
 ## Install
 
 ```bash
-npm i geo-lite
+npm i quick-geocode
 ```
 
 Uses native `fetch` (Node 18+). For older Node versions, polyfill `fetch` globally.
@@ -24,16 +24,16 @@ Uses native `fetch` (Node 18+). For older Node versions, polyfill `fetch` global
 ### CLI (npx)
 ```bash
 # Get coordinates for any place worldwide
-npx geo-lite "Washington, DC, USA"
+npx quick-geocode "Washington, DC, USA"
 # Output: {"lat":38.8950368,"lon":-77.0365427,"label":"Washington, District of Columbia, United States"}
 
-npx geo-lite "Sydney, Australia"
-npx geo-lite "Paris, France"
+npx quick-geocode "Sydney, Australia"
+npx quick-geocode "Paris, France"
 ```
 
 ### Library
 ```ts
-import { geocodeNominatim, reverseGeocodeNominatim, geocodePlace, lookupIp } from "geo-lite";
+import { geocodeNominatim, reverseGeocodeNominatim, geocodePlace, lookupIp } from "quick-geocode";
 
 const results = await geocodeNominatim("Eiffel Tower", { userAgent: "your-app/1.0" });
 const place = await reverseGeocodeNominatim(48.8584, 2.2945);
@@ -50,7 +50,7 @@ console.log(dc?.lat, dc?.lon);
 CommonJS:
 
 ```js
-const { geocodeNominatim, reverseGeocodeNominatim, lookupIp } = require("geo-lite");
+const { geocodeNominatim, reverseGeocodeNominatim, lookupIp } = require("quick-geocode");
 
 (async () => {
   const results = await geocodeNominatim("Eiffel Tower", { userAgent: "your-app/1.0" });
@@ -90,7 +90,7 @@ globalThis.fetch = fetch;
 
 ## Contributing
 
-Issues and PRs welcome at https://github.com/next-dna/geo-lite. Please run `npm run lint` and `npm run test` before submitting.
+Issues and PRs welcome at https://github.com/next-dna/quick-geocode. Please run `npm run lint` and `npm run test` before submitting.
 
 ## License
 
