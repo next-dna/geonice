@@ -5,6 +5,7 @@ Main client for quick-geocode API
 import requests
 from typing import Optional, List, Dict, Any
 from .models import GeocodeResult, IpLookupResult, ApiResponse
+from .config import DEFAULT_BASE_URL, DEFAULT_USER_AGENT, CLIENT_VERSION
 
 
 class QuickGeocodeClient:
@@ -14,7 +15,7 @@ class QuickGeocodeClient:
     Provides language-independent geocoding functionality through REST API.
     """
     
-    def __init__(self, base_url: str = "http://localhost:3000", user_agent: str = "python-quick-geocode-client/0.2.0"):
+    def __init__(self, base_url: str = DEFAULT_BASE_URL, user_agent: str = f"{DEFAULT_USER_AGENT}/{CLIENT_VERSION}"):
         """
         Initialize the client
         
@@ -175,19 +176,19 @@ class QuickGeocodeClient:
 
 
 # Convenience functions for direct usage
-def geocode(query: str, base_url: str = "http://localhost:3000") -> Optional[GeocodeResult]:
+def geocode(query: str, base_url: str = DEFAULT_BASE_URL) -> Optional[GeocodeResult]:
     """Quick geocoding function"""
     client = QuickGeocodeClient(base_url)
     return client.geocode(query)
 
 
-def reverse_geocode(lat: float, lon: float, base_url: str = "http://localhost:3000") -> Optional[GeocodeResult]:
+def reverse_geocode(lat: float, lon: float, base_url: str = DEFAULT_BASE_URL) -> Optional[GeocodeResult]:
     """Quick reverse geocoding function"""
     client = QuickGeocodeClient(base_url)
     return client.reverse_geocode(lat, lon)
 
 
-def lookup_ip(ip: Optional[str] = None, base_url: str = "http://localhost:3000") -> Optional[IpLookupResult]:
+def lookup_ip(ip: Optional[str] = None, base_url: str = DEFAULT_BASE_URL) -> Optional[IpLookupResult]:
     """Quick IP lookup function"""
     client = QuickGeocodeClient(base_url)
     return client.lookup_ip(ip)

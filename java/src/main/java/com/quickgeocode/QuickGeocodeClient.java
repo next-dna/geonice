@@ -26,7 +26,7 @@ public class QuickGeocodeClient {
      * Initialize the client with default settings
      */
     public QuickGeocodeClient() {
-        this("http://localhost:3000", "java-quick-geocode-client/0.2.0");
+        this(Config.DEFAULT_BASE_URL, Config.DEFAULT_USER_AGENT + "/" + Config.CLIENT_VERSION);
     }
     
     /**
@@ -35,7 +35,7 @@ public class QuickGeocodeClient {
      * @param baseUrl Base URL of the quick-geocode API server
      */
     public QuickGeocodeClient(String baseUrl) {
-        this(baseUrl, "java-quick-geocode-client/0.2.0");
+        this(baseUrl, Config.DEFAULT_USER_AGENT + "/" + Config.CLIENT_VERSION);
     }
     
     /**

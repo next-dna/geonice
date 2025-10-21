@@ -1,9 +1,10 @@
 import express from "express";
 import cors from "cors";
 import { geocodePlace, geocodeNominatim, reverseGeocodeNominatim, lookupIp } from "./index";
+import { CONFIG } from "./config";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || CONFIG.DEFAULT_PORT;
 
 // Middleware
 app.use(cors());
@@ -11,7 +12,7 @@ app.use(express.json());
 
 // Health check endpoint
 app.get("/health", (req, res) => {
-  res.json({ status: "ok", service: "quick-geocode-api", version: "0.2.0" });
+  res.json({ status: "ok", service: "quick-geocode-api", version: CONFIG.API_VERSION });
 });
 
 // Geocode endpoint - single place lookup
@@ -27,7 +28,7 @@ app.get("/geocode", async (req, res) => {
     }
 
     const result = await geocodePlace(query as string, {
-      userAgent: (userAgent as string) || "quick-geocode-api/0.2.0",
+      userAgent: (userAgent as string) || `${CONFIG.DEFAULT_USER_AGENT}/${CONFIG.API_VERSION}`,
     });
 
     if (!result) {
@@ -64,7 +65,7 @@ app.get("/geocode/search", async (req, res) => {
     }
 
     const results = await geocodeNominatim(query as string, {
-      userAgent: (userAgent as string) || "quick-geocode-api/0.2.0",
+      userAgent: (userAgent as string) || `${CONFIG.DEFAULT_USER_AGENT}/${CONFIG.API_VERSION}`,
     });
 
     const limitedResults = limit ? results.slice(0, parseInt(limit as string)) : results;
@@ -97,7 +98,7 @@ app.get("/reverse", async (req, res) => {
     }
 
     const result = await reverseGeocodeNominatim(Number(lat), Number(lon), {
-      userAgent: (userAgent as string) || "quick-geocode-api/0.2.0",
+      userAgent: (userAgent as string) || `${CONFIG.DEFAULT_USER_AGENT}/${CONFIG.API_VERSION}`,
       zoom: zoom ? Number(zoom) : undefined,
     });
 
@@ -140,7 +141,7 @@ app.get("/ip", async (req, res) => {
 app.get("/", (req, res) => {
   res.json({
     service: "quick-geocode-api",
-    version: "0.2.0",
+    version: CONFIG.API_VERSION,
     description: "Language-independent geocoding API",
     endpoints: {
       "GET /health": "Health check",
@@ -156,7 +157,7 @@ app.get("/", (req, res) => {
     },
     clients: {
       python: "pip install quick-geocode-client",
-      java: "Add Maven dependency: com.quickgeocode:client:0.2.0",
+      java: `Add Maven dependency: com.quickgeocode:client:${CONFIG.CLIENT_VERSION}`,
       curl: 'curl "http://localhost:3000/geocode?query=Sydney, Australia"',
     },
   });

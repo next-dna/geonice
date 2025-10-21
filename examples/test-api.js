@@ -5,7 +5,8 @@
  * Demonstrates language-independent usage
  */
 
-const BASE_URL = process.env.API_URL || "http://localhost:3000";
+const CONFIG = require('./config');
+const BASE_URL = process.env.API_URL || CONFIG.DEFAULT_BASE_URL;
 
 async function testApi() {
   console.log("🧪 Testing quick-geocode API...\n");

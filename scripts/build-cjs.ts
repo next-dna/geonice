@@ -15,3 +15,9 @@ execSync(
   "tsc src/server.ts --outDir dist --target ES2022 --module ES2022 --moduleResolution bundler",
   { stdio: "inherit" },
 );
+
+// Build config
+execSync(
+  "tsc src/config.ts --outDir dist --target ES2022 --module ES2022 --moduleResolution bundler",
+  { stdio: "inherit" },
+);

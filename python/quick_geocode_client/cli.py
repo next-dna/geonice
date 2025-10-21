@@ -7,6 +7,7 @@ import json
 import sys
 from typing import Optional
 from .client import QuickGeocodeClient
+from .config import DEFAULT_BASE_URL
 
 
 def main():
@@ -26,8 +27,8 @@ Examples:
     # Server configuration
     parser.add_argument(
         '--server', 
-        default='http://localhost:3000',
-        help='API server URL (default: http://localhost:3000)'
+        default=DEFAULT_BASE_URL,
+        help=f'API server URL (default: {DEFAULT_BASE_URL})'
     )
     
     # Geocoding
