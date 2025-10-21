@@ -11,6 +11,23 @@ Repository: https://github.com/next-dna/quick-geocode
 
 Node support: >=18
 
+## Comparison with alternatives
+
+| Feature                   | **quick-geocode** _(yours)_                 | **node-geocoder**                           | **geolib**                                              | **node-open-geocoder**    |
+| ------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------------------- | ------------------------- |
+| 🧠 **Primary purpose**    | Geocoding, reverse geocoding, **IP lookup** | Geocoding/reverse via multiple providers    | Coordinate math (distance, bounds) — not true geocoding | Minimal Nominatim wrapper |
+| 🌍 **Data sources**       | OpenStreetMap (Nominatim) + ipapi.co        | Google, Mapbox, OSM, OpenCage, etc.         | N/A (no geocoding API)                                  | OpenStreetMap only        |
+| 🧩 **API keys required**  | ❌ No                                       | ✅ Usually (Google, Mapbox, etc.)           | ❌                                                      | ❌                        |
+| ⚙️ **Dependencies**       | 🚫 Zero (uses native `fetch`)               | 6–10 dependencies                           | Several                                                 | 2 dependencies            |
+| 🧾 **TypeScript support** | ✅ Native types                             | ⚠️ Community types (`@types/node-geocoder`) | ✅                                                      | ❌                        |
+| 🧰 **Build targets**      | ESM + CJS                                   | CJS only (requires Babel for ESM)           | ESM + CJS                                               | CJS                       |
+| ⚡ **Speed (cold call)**  | ~300–500 ms (native fetch)                  | ~500–800 ms (depending on provider)         | n/a                                                     | ~500 ms                   |
+| 📦 **Size on install**    | ~20 KB                                      | ~250 KB                                     | ~100 KB                                                 | ~50 KB                    |
+| 🧭 **Extra features**     | ✅ CLI, ✅ IP geolocation, ✅ Next.js-ready | Multi-provider switching                    | Distance/bearing math                                   | Just geocode/reverse      |
+| 🧠 **Ease of use**        | One function call (`geocodePlace()`)        | Provider config required                    | Manual math utils                                       | Basic query builder       |
+| 💬 **Docs clarity**       | Clean, readable README                      | Long, multi-provider config docs            | Moderate                                                | Minimal                   |
+| 🤝 **License**            | MIT                                         | MIT                                         | MIT                                                     | MIT                       |
+
 ## Install
 
 ```bash
@@ -22,6 +39,7 @@ Uses native `fetch` (Node 18+). For older Node versions, polyfill `fetch` global
 ## Usage
 
 ### CLI (npx)
+
 ```bash
 # Get coordinates for any place worldwide
 npx quick-geocode "Washington, DC, USA"
@@ -32,6 +50,7 @@ npx quick-geocode "Paris, France"
 ```
 
 ### Library
+
 ```ts
 import { geocodeNominatim, reverseGeocodeNominatim, geocodePlace, lookupIp } from "quick-geocode";
 
